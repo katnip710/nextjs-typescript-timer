@@ -54,6 +54,8 @@ body {
   top: 0;
   bottom: 0;
   z-index: 3;
+  filter: brightness(0.9);
+  opacity: 0.5;
 
   -moz-animation:move-background 150s linear infinite;
   -ms-animation:move-background 150s linear infinite;

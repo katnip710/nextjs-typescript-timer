@@ -129,6 +129,17 @@ a {
   box-sizing: border-box;
 }
 
+.start-timer-button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  cursor: pointer;
+}
+
 main {
   display: flex;
   justify-content: center;

@@ -1,27 +1,37 @@
 import { useEffect, useState } from "react";
 
+
 function SpookyMusic() {
 
     const [playMusic, setplayMusic] = useState(false)
-    const stopMusic = () => setplayMusic(true);
+
+    const stopMusic = () => {
+        setplayMusic(true)
+        const audio = document.getElementById('a1') as HTMLAudioElement | null;
+        audio?.pause();
+    }
     const triggerMusic = () => {
         setplayMusic(false)
-
+        const audio = document.getElementById('a1') as HTMLAudioElement | null;
+        audio?.play();
     }
 
     return (
         <>
-            <audio src="/audio/SpookyMusic.mp3"></audio>
+            <audio id="a1" autoPlay><source src="/audio/SpookyMusic.mp3" type="audio/mp3" /></audio>
 
-            <div>
-                <button onClick={stopMusic} style={{
+            <div className="audioBtns">
+                <button className="stopBtn" onClick={stopMusic} style={{
                     display: playMusic ? 'none' : 'block'
-                }}>Stop</button>
-                <button onClick={triggerMusic} style={{
-                    display: playMusic ? 'block' : 'none'
-                }}>Play</button>
-            </div>
+                }}>
 
+                </button>
+                <button className="playBtn" onClick={triggerMusic} style={{
+                    display: playMusic ? 'block' : 'none'
+                }}>
+
+                </button>
+            </div>
         </>
     );
 };

@@ -4,7 +4,7 @@ import Moon from "../components/MoonBackground";
 import SpookyMusic from "../components/SpookyMusic";
 import { useEffect, useState } from "react";
 
-const Home: NextPage = () => {
+function Home() {
 
   const [start, setStart] = useState(false)
   const openTimer = () => setStart(true);

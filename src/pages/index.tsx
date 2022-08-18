@@ -1,16 +1,30 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import Moon from "../components/MoonBackground";
-import SpookyMusic from "../components/SpookyMusic";
 import { useEffect, useState } from "react";
 
 function Home() {
 
+  const [playMusic, setplayMusic] = useState(false)
+
+  const stopMusic = () => {
+      setplayMusic(true)
+      const audio = document.getElementById('a1') as HTMLAudioElement | null;
+      audio?.pause();
+  }
+  const triggerMusic = () => {
+      setplayMusic(false)
+      const audio = document.getElementById('a1') as HTMLAudioElement | null;
+      audio?.play();
+  }
+
   const [start, setStart] = useState(false)
-  const openTimer = () => setStart(true);
+  const openTimer = () => {
+    setStart(true)
+    const audio = document.getElementById('a1') as HTMLAudioElement | null;
+    audio?.play();
+  }
 
   const [spookyTime, setSpookyTime] = useState(false)
-
   const [days, setDays] = useState(0)
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
@@ -43,7 +57,10 @@ function Home() {
       setSeconds(s)
 
       if(d <= 0 && h <= 0 && m <= 0 && s <= m){
-          setSpookyTime(true)
+        setSpookyTime(true)
+        const audio = document.getElementById('a1') as HTMLAudioElement | null;
+        audio?.pause();
+        const video = document.getElementById('spookyTime') as HTMLVideoElement | null;
       }
 
       }, 1000)
@@ -62,7 +79,7 @@ function Home() {
       <div className="start-timer-button" style={{
         display: start ? 'none' : 'flex',
       }}>
-        <h1 onClick={openTimer}>Start Countdown to Halloween</h1>
+        <h1 onClick={openTimer}>Start Countdown</h1>
       </div>
 
       <Moon />
@@ -72,7 +89,7 @@ function Home() {
       }}>
         {spookyTime ? (
             <div className="halloweenTime">
-                <iframe width="560" height="349" src="https://www.youtube.com/embed/8wUixhV13gI?autoplay=1&mute=1&showinfo=0&controls=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                <iframe id="spookyTime" width="560" height="349" src="https://www.youtube.com/embed/v4IC7qaNr7I?autoplay=1&mute=1&showinfo=0&controls=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
                 <h1>Happy Halloween!</h1>
             </div>
@@ -100,7 +117,16 @@ function Home() {
                     </div>
                 </div>
 
-                <SpookyMusic />
+              <audio id="a1" autoPlay><source src="/audio/SpookyMusic.mp3" type="audio/mp3" /></audio>
+
+              <div className="audioBtns">
+                  <button className="stopBtn" onClick={stopMusic} style={{
+                      display: playMusic ? 'none' : 'block'
+                  }}></button>
+                  <button className="playBtn" onClick={triggerMusic} style={{
+                      display: playMusic ? 'block' : 'none'
+                  }}></button>
+              </div>
             </div>
         )}
         </main>

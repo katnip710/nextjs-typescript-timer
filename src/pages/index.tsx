@@ -38,7 +38,7 @@ function Home() {
       const now = new Date()
       const difference = target.getTime() - now.getTime()
 
-      const d = Math.floor(difference / (1000 * 60 * 60 *24))
+      const d = Math.floor(difference / (1000 * 60 * 60 * 24))
       setDays(d)
 
       const h = Math.floor(
@@ -60,7 +60,6 @@ function Home() {
         setSpookyTime(true)
         const audio = document.getElementById('a1') as HTMLAudioElement | null;
         audio?.pause();
-        const video = document.getElementById('spookyTime') as HTMLVideoElement | null;
       }
 
       }, 1000)

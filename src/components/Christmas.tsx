@@ -30,7 +30,7 @@ function Christmas() {
     const [seconds, setSeconds] = useState(0)
 
     useEffect(() =>{
-        const target = new Date('10/30/2022 23:59:59')
+        const target = new Date('12/24/2022 23:59:59')
         //const target = new Date ('08/12/2022 1:51:00')
 
         const interval = setInterval(() => {
@@ -69,104 +69,122 @@ function Christmas() {
     return (
         <>
         <Head>
-            <link rel="icon" href="img/FullMoon.png" />
+            <link rel="icon" href="img/XmasTree.png" />
         </Head>
 
         <div className="start-timer-button" style={{
             display: start ? 'none' : 'flex'
         }}>
             <h1 onClick={openTimer} style={{
-                fontFamily: '\'Mouse Memoirs\', sans-serif',
+                fontFamily: '\'Mountains of Christmas\', cursive',
                 fontSize: '4em',
-                fontWeight: '400',
-                color: 'rgb(255, 68, 0)',
+                fontWeight: '700',
+                color: 'red',
                 WebkitTextStrokeWidth: '1px',
-                WebkitTextStrokeColor: 'rgb(153, 41, 0)',
+                WebkitTextStrokeColor: 'red',
             }}>Start Countdown</h1>
         </div>
 
-        {/* Ani Moon Background */}
+        {/* Ani Snow Background */}
         <div className="background-container">
-            <img src="img/FullMoon.png" alt="moon" className="moon" style={{
-                height: '70vh',
-                width: '70vh',
-                position: 'absolute',
-                zIndex: '3',
-                right: '20px',
-                cursor: 'pointer',
-                transition: 'transform 1.5s ease-in',
-            }} />
             <div className="bgImg" style={{
-                background: 'black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat',
+                backgroundImage: 'url(\'img/SnowandTreesBG.jpg\')',
+                height: '100%',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover'
             }}></div>
-            <div className="animation" id="clouds"></div>
+            <div className="animation" id="snow">
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+                <div className="snowflake">❅</div>
+            </div>
         </div>
-        {/* Ani Moon Background */}
+        {/* Ani Snow Background */}
 
         <main style={{
             display: start ? 'flex' : 'none',
         }}>
             {time ? (
                 <div className="theDate">
-                    <iframe width="560" height="349" src="https://www.youtube.com/embed/v4IC7qaNr7I?autoplay=1&mute=1&showinfo=0&controls=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    <iframe width="560" height="349" src="https://www.youtube.com/embed/qdQjE_XEOmo?autoplay=1&mute=1&showinfo=0&controls=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
                     <h1 style={{
-                        fontFamily: '\'Mouse Memoirs\', sans-serif',
+                        fontFamily: '\'Mountains of Christmas\', cursive',
                         fontSize: '4em',
-                        fontWeight: '400',
-                        color: 'rgb(255, 68, 0)',
+                        fontWeight: '700',
+                        color: 'red',
                         WebkitTextStrokeWidth: '1px',
-                        WebkitTextStrokeColor: 'rgb(153, 41, 0)',
-                    }}>Happy Halloween!</h1>
+                        WebkitTextStrokeColor: 'red',
+                    }}>Merry Chirstmas!</h1>
                 </div>
                 ) : (
 
                 <div className="timer-wrapper">
                     <h2 style={{
-                        fontFamily: '\'Mouse Memoirs\', sans-serif',
+                        fontFamily: '\'Mountains of Christmas\', cursive',
                         fontSize: '4em',
-                        fontWeight: '400',
-                        color: 'rgb(255, 68, 0)',
+                        fontWeight: '700',
+                        color: 'green',
                         WebkitTextStrokeWidth: '1px',
-                        WebkitTextStrokeColor: 'rgb(153, 41, 0)'
-                    }}>Countdown to Halloween</h2>
+                        WebkitTextStrokeColor: 'green',
+                    }}>Countdown to Christmas</h2>
 
                     <div className="timer-inner">
                         <div className="timer-segment">
                             <span className="time" style={{
-                                color: 'rgb(255, 68, 0)'
+                                color: 'red',
                             }}>{days}</span>
                             <span className="label" style={{
-                                color: 'rgb(255, 68, 0)'
+                                color: 'red',
                             }}>Days</span>
                         </div>
                         <div className="timer-segment">
                             <span className="time" style={{
-                                color: 'rgb(255, 68, 0)'
+                                color: 'red',
                             }}>{hours}</span>
                             <span className="label" style={{
-                                color: 'rgb(255, 68, 0)'
+                                color: 'red',
                             }}>Hours</span>
                         </div>
                         <div className="timer-segment">
                             <span className="time" style={{
-                                color: 'rgb(255, 68, 0)'
+                                color: 'red',
                             }}>{minutes}</span>
                             <span className="label" style={{
-                                color: 'rgb(255, 68, 0)'
+                                color: 'red',
                             }}>Minutes</span>
                         </div>
                         <div className="timer-segment">
                             <span className="time" style={{
-                                color: 'rgb(255, 68, 0)'
+                                color: 'red',
                             }}>{seconds}</span>
                             <span className="label" style={{
-                                color: 'rgb(255, 68, 0)'
+                                color: 'red',
                             }}>Seconds</span>
                         </div>
                     </div>
 
-                <audio id="a1"><source src="/audio/SpookyMusic.mp3" type="audio/mp3" /></audio>
+                <audio id="a1"><source src="/audio/JingleBells.mp3" type="audio/mp3" /></audio>
 
                 <div className="audioBtns">
                     <button className="stopBtn" onClick={stopMusic} style={{

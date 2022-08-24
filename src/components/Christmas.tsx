@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
-function Halloween() {
+function Christmas() {
 
     const [playMusic, setplayMusic] = useState(false)
 
@@ -183,5 +183,5 @@ function Halloween() {
     );
 };
 
-export default Halloween;
+export default Christmas;
 

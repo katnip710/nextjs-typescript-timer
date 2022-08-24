@@ -8,6 +8,33 @@ body {
   overflow: hidden;
 }
 
+.start-timer-button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+  animation: glow 1.5s ease-in-out infinite alternate;
+  z-index: 9999;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.521), 0 0 20px rgba(255, 255, 255, 0.521), 0 0 20px rgba(255, 255, 255, 0.521), 0 0 30px #fff, 0 0 40px rgba(255, 255, 255, 0.521), 0 0 50px rgba(255, 255, 255, 0.521), 0 0 60px rgba(255, 255, 255, 0.521);
+  }
+
+  to {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.521), 0 0 20px rgba(255, 255, 255, 0.521), 0 0 30px rgba(255, 255, 255, 0.521), 0 0 40px rgba(255, 255, 255, 0.521), 0 0 50px rgba(255, 255, 255, 0.521), 0 0 60px rgba(255, 255, 255, 0.521), 0 0 70px rgba(255, 255, 255, 0.521);
+  }
+}
+
 .background-container{
 	position: fixed;
 	top: 0;
@@ -17,8 +44,12 @@ body {
   z-index: 0;
 }
 
-.stars {
-  background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+.moon:hover {
+  transform: scale(1.1);
+  transition: transform 1.5s ease-in;
+}
+
+.bgImg {
   position: absolute;
 	top: 0;
 	bottom: 0;
@@ -29,59 +60,27 @@ body {
   pointer-events: none;
 }
 
-/*
-.twinkling{
-	width: 10000px;
-	height: 100%;
-	background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 2;
-  pointer-events: none;
-
-  -moz-animation:move-background 70s linear infinite;
-  -ms-animation:move-background 70s linear infinite;
-  -o-animation:move-background 70s linear infinite;
-  -webkit-animation:move-background 70s linear infinite;
-  animation:move-background 70s linear infinite;
+.animation {
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
 }
-*/
 
-.clouds{
+#clouds{
 	width: 10000px;
 	height: 100%;
 	background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 3;
   filter: brightness(0.9);
   opacity: 0.5;
-  pointer-events: none;
 
   -moz-animation:move-background 150s linear infinite;
   -ms-animation:move-background 150s linear infinite;
   -o-animation:move-background 150s linear infinite;
   -webkit-animation:move-background 150s linear infinite;
   animation:move-background 150s linear infinite;
-}
-
-.moon {
-  height: 70vh;
-  width: 70vh;
-  position: absolute;
-  z-index: 3;
-  right: 20px;
-  cursor: pointer;
-  transition: transform 1.5s ease-in;
-}
-
-.moon:hover {
-  transform: scale(1.1);
-  transition: transform 1.5s ease-in;
 }
 
 @keyframes move-background {
@@ -95,7 +94,6 @@ body {
     -webkit-transform: translate3d(0px, 0px, 0px);
   }
 }
-
 @-webkit-keyframes move-background {
   0% {
 		-webkit-transform: translate3d(0px, 0px, 0px);
@@ -107,7 +105,6 @@ body {
     -webkit-transform: translate3d(0px, 0px, 0px);
   }
 }
-
 @-moz-keyframes move-background {
   0% {
 		-webkit-transform: translate3d(0px, 0px, 0px);
@@ -119,7 +116,6 @@ body {
     -webkit-transform: translate3d(0px, 0px, 0px);
   }
 }
-
 @-webkit-keyframes move-background {
   0% {
 		-webkit-transform: translate3d(0px, 0px, 0px);
@@ -139,17 +135,6 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-.start-timer-button {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  cursor: pointer;
 }
 
 main {
@@ -186,18 +171,6 @@ iframe {
   overflow: hidden;
 }
 
-h1 {
-  font-family: 'Mouse Memoirs', sans-serif;
-  font-size: 4em;
-  font-weight: 400;
-  color: rgb(255, 68, 0);
-  text-align: center;
-  animation: glow 1.5s ease-in-out infinite alternate;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgb(153, 41, 0);
-  z-index: 9999;
-}
-
 .timer-wrapper {
   display: flex;
   flex-direction: column;
@@ -217,16 +190,6 @@ h2 {
   animation: glow 1.5s ease-in-out infinite alternate;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: rgb(153, 41, 0);
-}
-
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 20px rgb(255, 68, 0), 0 0 30px rgb(255, 68, 0), 0 0 40px rgb(255, 68, 0), 0 0 50px rgb(255, 68, 0), 0 0 60px rgb(255, 68, 0);
-  }
-
-  to {
-    text-shadow: 0 0 10px #fff, 0 0 20px rgb(255, 68, 0), 0 0 30px rgb(255, 68, 0), 0 0 40px rgb(255, 68, 0), 0 0 50px rgb(255, 68, 0), 0 0 60px rgb(255, 68, 0), 0 0 70px rgb(255, 68, 0);
-  }
 }
 
 .timer-inner {
